@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingVertical: 8,
-    gap: 4,
   },
   activeTab: {
     // Add active state styling if needed

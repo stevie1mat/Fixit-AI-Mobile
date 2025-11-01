@@ -24,7 +24,27 @@ import {
   Urbanist_600SemiBold,
   Urbanist_700Bold,
 } from '@expo-google-fonts/urbanist';
+import { AuthProvider, useAuth } from './src/contexts/AuthContext';
+import LoginScreen from './src/screens/LoginScreen';
 import Navigation from './src/navigation';
+
+function AppContent() {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#007AFF" />
+      </View>
+    );
+  }
+
+  if (!user) {
+    return <LoginScreen />;
+  }
+
+  return <Navigation />;
+}
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -53,9 +73,11 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <Navigation />
-      <StatusBar style="auto" />
-    </View>
+    <AuthProvider>
+      <View style={{ flex: 1 }}>
+        <AppContent />
+        <StatusBar style="auto" />
+      </View>
+    </AuthProvider>
   );
 }
