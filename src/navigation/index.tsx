@@ -10,16 +10,26 @@ type Screen = 'Chat' | 'Connections' | 'Settings';
 export default function Navigation() {
   const [activeScreen, setActiveScreen] = useState<Screen>('Chat');
 
+  const handleNavigate = (screen: string) => {
+    if (screen === 'Connections') {
+      setActiveScreen('Connections');
+    } else if (screen === 'Settings') {
+      setActiveScreen('Settings');
+    } else if (screen === 'Chat') {
+      setActiveScreen('Chat');
+    }
+  };
+
   const renderScreen = () => {
     switch (activeScreen) {
       case 'Chat':
-        return <ChatScreen />;
+        return <ChatScreen onNavigate={handleNavigate} />;
       case 'Connections':
         return <ConnectionsScreen />;
       case 'Settings':
         return <SettingsScreen />;
       default:
-        return <ChatScreen />;
+        return <ChatScreen onNavigate={handleNavigate} />;
     }
   };
 
