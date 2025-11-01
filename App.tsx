@@ -25,6 +25,7 @@ import {
   Urbanist_700Bold,
 } from '@expo-google-fonts/urbanist';
 import { AuthProvider, useAuth } from './src/contexts/AuthContext';
+import { ChatProvider } from './src/store/ChatContext';
 import LoginScreen from './src/screens/LoginScreen';
 import Navigation from './src/navigation';
 
@@ -74,10 +75,12 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <View style={{ flex: 1 }}>
-        <AppContent />
-        <StatusBar style="auto" />
-      </View>
+      <ChatProvider>
+        <View style={{ flex: 1 }}>
+          <AppContent />
+          <StatusBar style="auto" />
+        </View>
+      </ChatProvider>
     </AuthProvider>
   );
 }
