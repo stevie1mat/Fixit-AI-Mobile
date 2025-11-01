@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   header: {
-    paddingTop: 60,
+    paddingTop: 70,
     paddingBottom: 16,
     paddingHorizontal: 16,
     backgroundColor: '#FFF',
@@ -29,17 +29,19 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: '#000',
+    fontFamily: 'Urbanist_600SemiBold',
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop: 20,
     alignItems: 'center',
   },
   placeholder: {
     fontSize: 16,
     color: '#8E8E93',
+    fontFamily: 'Urbanist_300Light',
   },
 });
 
